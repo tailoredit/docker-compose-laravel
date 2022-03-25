@@ -17,6 +17,7 @@ Bringing up the Docker Compose network with `site` instead of just using `up`, e
 - **nginx** - `:80`
 - **mysql** - `:3306`
 - **php** - `:9000`
+  - with **xdebug** - `:9001`
 - **redis** - `:6379`
 - **mailhog** - `:8025`
 - **phpmyadmin** - `:8081`

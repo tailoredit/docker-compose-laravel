@@ -29,6 +29,11 @@ RUN chmod uga+x /usr/local/bin/install-php-extensions && sync && \
 #RUN docker-php-ext-install pdo pdo_mysql
 # End improvements
 
+# install and enable xdebug
+RUN apk add --no-cache $PHPIZE_DEPS \
+    && pecl install xdebug-3.1.3 \
+    && docker-php-ext-enable xdebug
+
 RUN mkdir -p /usr/src/php/ext/redis \
     && curl -L https://github.com/phpredis/phpredis/archive/5.3.4.tar.gz | tar xvz -C /usr/src/php/ext/redis --strip 1 \
     && echo 'redis' >> /usr/src/php-available-exts \
