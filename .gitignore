@@ -2,3 +2,4 @@ mysql
 .DS_Store
 .idea
 .env
+composer
