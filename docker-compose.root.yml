@@ -105,3 +105,19 @@ services:
       - 8025:8025
     networks:
       - laravel
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    depends_on:
+      - mysql
+      - php
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+    restart: unless-stopped
+    ports:
+      - 8081:80
+    networks:
+      - laravel
