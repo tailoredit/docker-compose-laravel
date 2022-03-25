@@ -73,6 +73,7 @@ services:
     container_name: composer
     volumes:
       - ./src:/var/www/html
+      - ~/.composer/cache:/tmp
     working_dir: /var/www/html
     depends_on:
       - php
@@ -135,3 +136,18 @@ services:
       - 8081:80
     networks:
       - laravel
+
+  # phpunit:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #     args:
+  #       - UID=${UID:-1000}
+  #       - GID=${GID:-1000}
+  #   container_name: phpunit
+  #   volumes:
+  #     - ./src:/var/www/html
+  #   working_dir: /var/www/html
+  #   entrypoint: ['php', '/var/www/html/vendor/bin/phpunit']
+  #   networks:
+  #     - laravel
