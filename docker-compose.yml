@@ -151,6 +151,19 @@ services:
     networks:
       - laravel
 
+  # adminer:
+  #   image: adminer:latest
+  #   # image: adminer:4.8.1-standalone
+  #   container_name: adminer
+  #   depends_on:
+  #    - mysql
+  #    - php
+  #   restart: unless-stopped
+  #   ports:
+  #     - 8080:8080
+  #   networks:
+  #     - laravel
+
   # phpunit:
   #   build:
   #     context: .
