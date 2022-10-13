@@ -74,7 +74,7 @@ services:
     depends_on:
       - php
     user: root
-    entrypoint: ['composer', '--ignore-platform-reqs']
+    entrypoint: ['composer', 'install', '--ignore-platform-reqs']
     # entrypoint: ['composer', 'install', '--optimize-autoloader', '--no-dev', '--ignore-platform-reqs']
     networks:
       - laravel
@@ -90,7 +90,7 @@ services:
       - 3000:3000
       - 3001:3001
     working_dir: /var/www/html
-    entrypoint: ['npm']  # Development
+    entrypoint: ['npm', 'ci']  # Development
     #entrypoint: ["npm", "ci", "--only-production"]  # Production
     networks:
       - laravel
@@ -105,7 +105,7 @@ services:
     depends_on:
       - mysql
     working_dir: /var/www/html
-    entrypoint: ['php', '/var/www/html/artisan']
+    #DEV (not needed?) entrypoint: ['php', '/var/www/html/artisan']
     # entrypoint: ['php', '/var/www/html/artisan', 'config:cache']
     networks:
       - laravel
